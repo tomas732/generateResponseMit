@@ -9,14 +9,14 @@ $foliopago = $_POST['foliocpagos'];
 $refecence = $_POST['reference'];
 
 $ref = '';
-echo $order;
+//echo $order;
 if(!empty($order) && !empty($siebel)){
   if(!empty($refecence) && strpos($refecence,'-'.$order.'-') !==false && strpos($refecence,'-'.$siebel.'-') !==false)
   $ref = $refecence;
   else
 	$ref = 'SFVE-'.$order.'-'.$siebel;
 }
-echo $ref;
+//echo $ref;
 if(empty($key)){
 $key = '5dcc67393750523cd165f17e1efadd21';
 }
