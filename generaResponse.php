@@ -6,10 +6,14 @@ $order = $_POST['orden'];
 $siebel = $_POST['siebel'];
 $response = $_POST['response'];
 $foliopago = $_POST['foliocpagos'];
+$refecence = $_POST['reference'];
 
 $ref = '';
 echo $order;
 if(!empty($order) && !empty($siebel)){
+  if(!empty($refecence) && strpos($refecence,'-'.$order.'-') !==false && strpos($refecence,'-'.$siebel.'-') !==false)
+  $ref = $refecence;
+  else
 	$ref = 'SFVE-'.$order.'-'.$siebel;
 }
 echo $ref;
@@ -53,6 +57,6 @@ $documentoXML = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 $encryptedString = AESCrypto::encriptar($documentoXML, $key); 
 
-echo '<textarea style="width:100%;height: 400px;">strResponse='.$encryptedString.'</textarea><br/><a href="index.php">&lt;&lt;Regresar</a>';
+echo 'strResponse='.$encryptedString;
 
 ?>
